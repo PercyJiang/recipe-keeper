@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
-import RecipeModel from '../models/recipe'
+import RecipeModel from '../models/recipe.js'
 
 const router = express.Router()
 

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const recipeSchema = mongoose.Schema({
-    dish_name: String,
+    recipe_name: String,
     creator: String,
     image: String,
     materials: [String],
