@@ -1,8 +1,13 @@
 import React from 'react'
+import { Container } from '@material-ui/core'
+
+import Header from './components/Header'
 
 const App = () => {
     return (
-        <h1>App</h1>
+        <Container fixed>
+            <Header />
+        </Container>
     )
 }
 
