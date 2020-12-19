@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardHeader, Avatar, CardMedia, CardContent, Typography } from '@material-ui/core'
 
+import UpdateDialog from './UpdateDialog'
 import useStyles from '../styles/recipe'
 import default_image from '../images/default.jfif'
 
@@ -12,11 +13,7 @@ const Recipe = () => {
                 avatar={
                     <Avatar aria-label="creator" className={classes.avatar}>C</Avatar>
                 }
-                // action={
-                //     <IconButton aria-label="settings">
-                //         <MoreVertIcon />
-                //     </IconButton>
-                // }
+                action={<UpdateDialog />}
                 title="Recipe Name"
                 subheader="September 14, 2016"
             />

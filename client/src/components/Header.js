@@ -1,9 +1,8 @@
 import React from 'react'
-import { AppBar, Typography, InputBase, Toolbar, IconButton } from '@material-ui/core'
+import { AppBar, Typography, InputBase, Toolbar } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-
 import useStyles from '../styles/header'
+import CreateDialog from './CreateDialog'
 
 const Header = () => {
     const classes = useStyles()
@@ -26,10 +25,7 @@ const Header = () => {
                     />
                 </div>
                 <div className={classes.grow} />
-                <IconButton color="inherit" aria-label="create-recipe">
-                    <AddCircleIcon />
-                        &nbsp;Add
-                    </IconButton>
+                <CreateDialog />
             </Toolbar>
         </AppBar>
     )

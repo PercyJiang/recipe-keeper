@@ -1,14 +1,29 @@
 import React from 'react'
-import { Container } from '@material-ui/core'
+import { Container, Grid, Grow } from '@material-ui/core'
 
 import Header from './components/Header'
 import Recipe from './components/Recipe'
 
 const App = () => {
     return (
-        <Container fixed>
+        <Container maxWidth="lg">
             <Header />
-            <Recipe />
+            <Grow in>
+                <Container>
+                    <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+                        <Grid item xs={12} sm={7}>
+                            <Recipe />
+                            <Recipe />
+                            <Recipe />
+                            <Recipe />
+                            <Recipe />
+                            <Recipe />
+                            <Recipe />
+                            <Recipe />
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Grow>
         </Container>
     )
 }
