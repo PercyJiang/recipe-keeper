@@ -14,7 +14,7 @@ const App = () => {
 
     return (
         <Container maxWidth="lg">
-            <Header />
+            <Header currentId={currentId} setCurrentId={setCurrentId} />
             <Grow in>
                 <Container>
                     <Grid container justify="space-between" alignItems="stretch" spacing={3}>

@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import useStyles from '../styles/header'
 import CreateDialog from './CreateDialog'
 
-const Header = () => {
+const Header = ({ currentId, setCurrentId }) => {
     const classes = useStyles()
 
     return (
@@ -25,7 +25,7 @@ const Header = () => {
                     />
                 </div>
                 <div className={classes.grow} />
-                <CreateDialog />
+                <CreateDialog currentId={currentId} setCurrentId={setCurrentId} />
             </Toolbar>
         </AppBar>
     )

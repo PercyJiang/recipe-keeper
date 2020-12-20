@@ -12,7 +12,7 @@ export const getRecipes = () => async (dispatch) => {
 }
 
 // create
-export const createRecipes = (recipe) => async (dispatch) => {
+export const createRecipe = (recipe) => async (dispatch) => {
     try {
         const { data } = await api.createRecipe(recipe)
         dispatch({ type: CREATE, payload: data })

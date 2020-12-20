@@ -22,4 +22,8 @@ export default makeStyles((theme) => ({
     avatar: {
         backgroundColor: red[500],
     },
+    deleteIcon: {
+        marginTop: 20,
+        width: '100%'
+    }
 }))
