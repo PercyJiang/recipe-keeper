@@ -4,7 +4,7 @@ import CreateIcon from '@material-ui/icons/Create';
 
 import Form from './Form'
 
-const UpdateDialog = () => {
+const UpdateDialog = ({ currentId, setCurrentId }) => {
     const [open, setOpen] = React.useState(false)
 
     const handleClickOpen = () => { setOpen(true) }
@@ -17,7 +17,7 @@ const UpdateDialog = () => {
             </IconButton>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Update a recipe</DialogTitle>
-                <Form />
+                <Form currentId={currentId} setCurrentId={setCurrentId} setOpen={setOpen} />
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">Cancel</Button>
                 </DialogActions>

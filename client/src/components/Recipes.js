@@ -5,7 +5,7 @@ import { Grid, CircularProgress } from '@material-ui/core'
 import useStyles from '../styles/recipes'
 import Recipe from './Recipe'
 
-const Recipes = ({ setCurrentId }) => {
+const Recipes = ({ currentId, setCurrentId }) => {
     const classes = useStyles()
     const recipes = useSelector((state) => state.recipes)
 
@@ -14,7 +14,7 @@ const Recipes = ({ setCurrentId }) => {
             <Grid className={classes.mainContainer}>
                 {recipes.map((recipe) => (
                     <Grid key={recipe._id} item xs={12} sm={6} md={6}>
-                        <Recipe recipe={recipe} setCurrentId={setCurrentId} />
+                        <Recipe recipe={recipe} currentId={currentId} setCurrentId={setCurrentId} />
                     </Grid>
                 ))}
             </Grid>

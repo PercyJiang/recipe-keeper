@@ -9,7 +9,7 @@ import useStyles from '../styles/recipe'
 import default_image from '../images/default.jfif'
 import { deleteRecipe } from '../actions/recipes'
 
-const Recipe = ({ recipe, setCurrentId }) => {
+const Recipe = ({ recipe, currentId, setCurrentId }) => {
     const classes = useStyles()
     const dispatch = useDispatch()
 
@@ -17,7 +17,13 @@ const Recipe = ({ recipe, setCurrentId }) => {
         <Card className={classes.root}>
             <CardHeader
                 avatar={<Avatar aria-label="creator" className={classes.avatar}>C</Avatar>}
-                action={<UpdateDialog />}
+                action={
+                    <UpdateDialog
+                        currentId={recipe._id}
+                        setCurrentId={setCurrentId}
+                        onClick={() => setCurrentId(recipe._id)}
+                    />
+                }
                 title={recipe.recipeName || 'No Name'}
                 subheader={
                     <Typography variant="body2">
