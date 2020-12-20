@@ -39,11 +39,17 @@ const Recipe = ({ recipe, setCurrentId }) => {
             />
             <CardMedia className={classes.media} image={recipe.image || default_image} />
             <CardContent>
-                <Typography> {recipe.materials.map((e) => `#${e} `)}</Typography>
+                <Typography>Materials:</Typography>
+                {recipe.materials.map(
+                    (e) => <Typography key={recipe.materials.indexOf(e)}>&nbsp;&nbsp;{e}</Typography>
+                )}
                 <br></br>
-                <Typography> {recipe.steps.map((e) => `#${e} `)}</Typography>
+                <Typography>Steps:</Typography>
+                {recipe.steps.map(
+                    (e) => <Typography key={recipe.steps.indexOf(e)}>&nbsp;&nbsp;{e}</Typography>
+                )}
             </CardContent>
-            <Tooltip title="Delete">
+            <Tooltip className={classes.tooltip} title="Delete">
                 <IconButton onClick={() => dispatch(deleteRecipe(recipe._id))}>
                     <DeleteIcon className={classes.deleteIcon} />
                 </IconButton>

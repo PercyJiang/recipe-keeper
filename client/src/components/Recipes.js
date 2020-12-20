@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Grid, CircularProgress } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 import useStyles from '../styles/recipes'
 import Recipe from './Recipe'
@@ -26,7 +26,7 @@ const Recipes = ({ setCurrentId }) => {
     }
 
     return (
-        !recipes.length ? <CircularProgress /> : (<Grid>{recipeContainer}</Grid>)
+        <Grid>{recipeContainer}</Grid>
     )
 }
 

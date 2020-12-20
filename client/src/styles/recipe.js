@@ -1,10 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles'
 export default makeStyles((theme) => ({
     root: {
-        maxHeight: 500,
+        maxHeight: 600,
         maxWidth: 300,
         width: 300,
-        height: 500,
+        height: 600,
+        position: 'relative',
     },
     media: {
         height: 0,
@@ -25,7 +26,10 @@ export default makeStyles((theme) => ({
         height: theme.spacing(7),
     },
     deleteIcon: {
-        marginTop: 20,
-        width: '100%'
+        width: '100%',
+    },
+    tooltip: {
+        position: 'absolute',
+        bottom: 0,
     }
 }))

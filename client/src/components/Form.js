@@ -68,6 +68,7 @@ const Form = ({ currentId, setCurrentId, setOpen }) => {
                     )}
                 />
                 <TextField
+                    multiline
                     fullWidth
                     margin="dense"
                     label="Materials"
@@ -77,6 +78,7 @@ const Form = ({ currentId, setCurrentId, setOpen }) => {
                     )}
                 />
                 <TextField
+                    multiline
                     fullWidth
                     margin="dense"
                     label="Steps"
