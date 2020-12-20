@@ -1,9 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles'
-import { red } from '@material-ui/core/colors';
-
 export default makeStyles((theme) => ({
     root: {
-        maxWidth: 345,
+        maxHeight: 500,
+        maxWidth: 300,
+        width: 300,
+        height: 500,
     },
     media: {
         height: 0,
@@ -20,7 +21,8 @@ export default makeStyles((theme) => ({
         transform: 'rotate(180deg)',
     },
     avatar: {
-        backgroundColor: red[500],
+        width: theme.spacing(7),
+        height: theme.spacing(7),
     },
     deleteIcon: {
         marginTop: 20,

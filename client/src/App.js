@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Grid, Grow } from '@material-ui/core'
+import { Container, Grid } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 
 import Header from './components/Header'
@@ -15,15 +15,9 @@ const App = () => {
     return (
         <Container maxWidth="lg">
             <Header currentId={currentId} setCurrentId={setCurrentId} />
-            <Grow in>
-                <Container>
-                    <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
-                            <Recipes currentId={currentId} setCurrentId={setCurrentId} />
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Grow>
+            <Grid item xs={12} sm={7}>
+                <Recipes setCurrentId={setCurrentId} />
+            </Grid>
         </Container>
     )
 }

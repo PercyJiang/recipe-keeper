@@ -9,14 +9,18 @@ import useStyles from '../styles/recipe'
 import default_image from '../images/default.jfif'
 import { deleteRecipe } from '../actions/recipes'
 
-const Recipe = ({ recipe, currentId, setCurrentId }) => {
+const Recipe = ({ recipe, setCurrentId }) => {
     const classes = useStyles()
     const dispatch = useDispatch()
 
     return (
         <Card className={classes.root}>
             <CardHeader
-                avatar={<Avatar aria-label="creator" className={classes.avatar}>C</Avatar>}
+                avatar={
+                    <Avatar aria-label="creator" className={classes.avatar}>
+                        {recipe.creator}
+                    </Avatar>
+                }
                 action={
                     <UpdateDialog
                         currentId={recipe._id}
