@@ -71,7 +71,7 @@ const Form = ({ currentId, setCurrentId, setOpen }) => {
                     multiline
                     fullWidth
                     margin="dense"
-                    label="Materials"
+                    label="Materials (separated by comma)"
                     value={recipeData.materials}
                     onChange={(e) => setRecipeData(
                         { ...recipeData, materials: e.target.value.split(',') }
@@ -81,7 +81,7 @@ const Form = ({ currentId, setCurrentId, setOpen }) => {
                     multiline
                     fullWidth
                     margin="dense"
-                    label="Steps"
+                    label="Steps (separated by comma)"
                     value={recipeData.steps}
                     onChange={(e) => setRecipeData(
                         { ...recipeData, steps: e.target.value.split(',') }
