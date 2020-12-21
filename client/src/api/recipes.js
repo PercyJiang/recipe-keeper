@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:5000/recipes'
+const url = 'https://recipe-keeper-percy.herokuapp.com/recipes'
 
 // read
 export const getRecipes = () => axios.get(url)
