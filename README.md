@@ -8,9 +8,10 @@ Guest;
 ## Objects
 
 **Recipe**  
+ID -> ?  
 RecipeName -> String;  
-Creator -> String;  
 Image -> String;  
+Creator -> String;  
 CreatedAt -> Date;  
 Materials -> List(String);  
 Steps -> List(String);  
