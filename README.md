@@ -14,7 +14,7 @@ Image -> String;
 Creator -> String;  
 CreatedAt -> Date;  
 Materials -> List(String);  
-Steps -> List(String);  
+Steps -> Map(String);  
 
 ## Services
 
