@@ -1,4 +1,4 @@
-export const URL = "localhost:5000/recipes";
+export const URL = "http://localhost:5000/recipes";
 
 // action types
 export const CREATE = "CREATE";

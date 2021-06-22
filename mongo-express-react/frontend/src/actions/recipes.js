@@ -7,7 +7,7 @@ export const createRecipe = (recipe) => async (dispatch) => {
     const { data } = await api.createRecipe(recipe);
     dispatch({ type: CREATE, payload: data });
   } catch (error) {
-    console.log("actions/recipes error: ", error);
+    console.log("actions/recipes error: ", error.response.data);
   }
 };
 
@@ -17,7 +17,7 @@ export const getRecipes = () => async (dispatch) => {
     const { data } = await api.getRecipes();
     dispatch({ type: READ, payload: data });
   } catch (error) {
-    console.log("actions/recipes error: ", error);
+    console.log("actions/recipes error: ", error.response.data);
   }
 };
 export const getRecipe = (id) => async (dispatch) => {
@@ -25,7 +25,7 @@ export const getRecipe = (id) => async (dispatch) => {
     const { data } = await api.getRecipe(id);
     dispatch({ type: READ, payload: data });
   } catch (error) {
-    console.log("actions/recipes error: ", error);
+    console.log("actions/recipes error: ", error.response.data);
   }
 };
 
@@ -35,7 +35,7 @@ export const updateRecipe = (id, recipe) => async (dispatch) => {
     const { data } = await api.updateRecipe(id, recipe);
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
-    console.log("actions/recipes error: ", error);
+    console.log("actions/recipes error: ", error.response.data);
   }
 };
 
@@ -45,6 +45,6 @@ export const deleteRecipe = (id) => async (dispatch) => {
     await await api.deleteRecipe(id);
     dispatch({ type: DELETE, payload: id });
   } catch (error) {
-    console.log("actions/recipes error: ", error);
+    console.log("actions/recipes error: ", error.response.data);
   }
 };
