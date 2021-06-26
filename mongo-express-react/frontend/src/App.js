@@ -1,18 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
 
-import { getRecipes } from "./actions/recipes";
+import useStyles from "./styles/App";
+import Recipe from "./components/Recipe";
 
 const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getRecipes());
-  }, [dispatch]);
-  const recipes = useSelector((state) => state.recipes);
-  console.log("percy debug: recipes: ", recipes);
-
-  return <Container>App</Container>;
+  const classes = useStyles();
+  return (
+    <Container className={classes.container}>
+      <Recipe />
+    </Container>
+  );
 };
 
 export default App;
