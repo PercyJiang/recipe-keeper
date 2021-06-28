@@ -5,12 +5,10 @@ export default makeStyles((theme) => ({
     margin: 20,
     width: 500,
   },
-  media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
-  },
-  actions: {
-    display: "flex",
-    justifyContent: "flex-end",
+  form: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "50ch",
+    },
   },
 }));
