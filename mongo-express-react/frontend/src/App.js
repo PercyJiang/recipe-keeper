@@ -14,7 +14,7 @@ const App = () => {
       <Header />
       <Recipe />
       <Form />
-      <Button variant="contained" color="default" size="large">
+      <Button variant="outlined" color="default" size="large">
         <AddIcon />
       </Button>
     </Container>
