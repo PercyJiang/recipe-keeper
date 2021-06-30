@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   root: {
     margin: "auto",
     marginTop: 20,
-    width: 500,
+    width: 700,
   },
   media: {
     height: 0,

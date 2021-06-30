@@ -14,6 +14,7 @@ const App = () => {
       <Container maxWidth="lg">
         <Header />
         <Recipe />
+        <Recipe />
         <Form />
         <br></br>
         <Button

@@ -21,25 +21,25 @@ const Recipe = () => {
       <CardHeader title="Ramen" subheader="Created by Percy at 06-17-2021" />
       <CardMedia className={classes.media} image={ramen_image} />
       <CardContent>
-        <Typography>Materials</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6">Materials</Typography>
+        <Typography variant="body1" color="textSecondary" component="p">
           Ramen, Condiments, Egg, Small Pot
         </Typography>
         <br></br>
-        <Typography>Steps</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6">Steps</Typography>
+        <Typography variant="body1" color="textSecondary" component="p">
           1. Boil water in small pot
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body1" color="textSecondary" component="p">
           2. Put in ramen and condiments
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body1" color="textSecondary" component="p">
           3. Boil
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body1" color="textSecondary" component="p">
           4. Add egg
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body1" color="textSecondary" component="p">
           5. Boil
         </Typography>
       </CardContent>
