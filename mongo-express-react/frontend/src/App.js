@@ -2,22 +2,30 @@ import React from "react";
 import { Container, Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
-import useStyles from "./styles/App";
 import Recipe from "./components/Recipe";
 import Header from "./components/Header";
 import Form from "./components/Form";
+import useStyles from "./styles/App";
 
 const App = () => {
   const classes = useStyles();
   return (
-    <Container className={classes.container}>
-      <Header />
-      <Recipe />
-      <Form />
-      <Button variant="outlined" color="default" size="large">
-        <AddIcon />
-      </Button>
-    </Container>
+    <div>
+      <Container maxWidth="lg">
+        <Header />
+        <Recipe />
+        {/* <Form /> */}
+        <br></br>
+        <Button
+          variant="outlined"
+          color="default"
+          size="large"
+          className={classes.button}
+        >
+          <AddIcon />
+        </Button>
+      </Container>
+    </div>
   );
 };
 
