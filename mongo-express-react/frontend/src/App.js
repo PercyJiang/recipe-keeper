@@ -21,11 +21,14 @@ const useStyles = makeStyles(() => ({
 const App = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  // effect
   useEffect(() => {
     dispatch(getRecipes());
   }, [dispatch]);
+  // state
   const [formOpen, setFormOpen] = useState(false);
   const [currentId, setCurrentId] = useState(undefined);
+  const [currentRecipe, setCurrentRecipe] = useState(undefined);
   return (
     <div>
       <Container maxWidth="lg">

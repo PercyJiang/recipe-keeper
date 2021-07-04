@@ -5,7 +5,7 @@ const reducers = (recipes = [], action) => {
     case "getRecipes":
       return action.payload;
     case "getRecipe":
-      return recipes;
+      return action.payload;
     case "updateRecipe":
       return recipes.map((recipe) =>
         recipe._id === action.payload._id ? action.payload : recipe
