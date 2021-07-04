@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import { useDispatch } from "react-redux";
 
-import Recipe from "./components/Recipe";
+import Recipes from "./components/Recipes";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import useStyles from "./styles/App";
 
+import { getRecipes } from "./actions/recipes";
+
 const App = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRecipes());
+  }, [dispatch]);
   return (
     <div>
       <Container maxWidth="lg">
         <Header />
-        <Recipe />
-        <Recipe />
+        <Recipes />
         <Form />
         <br></br>
         <Button

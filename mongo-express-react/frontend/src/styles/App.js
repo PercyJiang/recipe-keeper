@@ -4,6 +4,6 @@ export default makeStyles((theme) => ({
   button: {
     position: "fixed",
     bottom: 20,
-    right: 180,
+    right: 150,
   },
 }));
