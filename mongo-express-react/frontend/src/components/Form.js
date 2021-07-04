@@ -2,8 +2,29 @@ import React from "react";
 import { Paper, TextField, Button, Typography } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import FileBase from "react-file-base64";
+import { makeStyles } from "@material-ui/core/styles";
 
-import useStyles from "../styles/Form";
+const useStyles = makeStyles((theme) => ({
+  form: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(2),
+      width: "50ch",
+    },
+  },
+  fileInput: {
+    width: "97%",
+    margin: "10px 17px",
+  },
+  typography: {
+    marginLeft: 10,
+    marginTop: 10,
+  },
+  button: {
+    position: "relative",
+    float: "right",
+    marginRight: 20,
+  },
+}));
 
 const Form = () => {
   const classes = useStyles();

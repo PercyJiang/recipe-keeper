@@ -8,11 +8,27 @@ import {
   CardActions,
   IconButton,
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import useStyles from "../styles/Recipe";
 import ramen_image from "../images/kimchi_ramen.jpg";
+
+const useStyles = makeStyles(() => ({
+  root: {
+    margin: "auto",
+    marginTop: 20,
+    width: 700,
+  },
+  media: {
+    height: 0,
+    paddingTop: "56.25%", // 16:9
+  },
+  actions: {
+    display: "flex",
+    justifyContent: "flex-end",
+  },
+}));
 
 const Recipe = ({ recipe }) => {
   const classes = useStyles();

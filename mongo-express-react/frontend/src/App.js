@@ -6,9 +6,18 @@ import { useDispatch } from "react-redux";
 import Recipes from "./components/Recipes";
 import Header from "./components/Header";
 import CreateDialog from "./components/CreateDialog";
-import useStyles from "./styles/App";
 
 import { getRecipes } from "./actions/recipes";
+
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+  button: {
+    position: "fixed",
+    bottom: 20,
+    right: 150,
+  },
+}));
 
 const App = () => {
   const classes = useStyles();
