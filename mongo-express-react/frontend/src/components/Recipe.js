@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import {
   Card,
   CardHeader,
@@ -13,6 +14,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 import ramen_image from "../images/kimchi_ramen.jpg";
+import { deleteRecipe } from "../actions/recipes";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -32,6 +34,7 @@ const useStyles = makeStyles(() => ({
 
 const Recipe = ({ recipe, setCurrentId, setFormOpen }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   let materialString = "";
   for (const key in recipe.Materials) {
     materialString += recipe.Materials[key] + ", ";
@@ -71,7 +74,7 @@ const Recipe = ({ recipe, setCurrentId, setFormOpen }) => {
         >
           <EditIcon />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => dispatch(deleteRecipe(recipe._id))}>
           <DeleteIcon />
         </IconButton>
       </CardActions>
