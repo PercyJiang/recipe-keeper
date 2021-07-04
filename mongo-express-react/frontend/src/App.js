@@ -27,7 +27,6 @@ const App = () => {
   }, [dispatch]);
   // state
   const [formOpen, setFormOpen] = useState(false);
-  // const [currentId, setCurrentId] = useState(undefined);
   const [currentRecipe, setCurrentRecipe] = useState(undefined);
   return (
     <div>
