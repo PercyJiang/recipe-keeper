@@ -5,12 +5,11 @@ import { useDispatch } from "react-redux";
 
 import Recipes from "./components/Recipes";
 import Header from "./components/Header";
-import CreateDialog from "./components/CreateDialog";
+import Form from "./components/Form";
 
 import { getRecipes } from "./actions/recipes";
 
 import { makeStyles } from "@material-ui/core/styles";
-
 const useStyles = makeStyles(() => ({
   button: {
     position: "fixed",
@@ -25,12 +24,13 @@ const App = () => {
   useEffect(() => {
     dispatch(getRecipes());
   }, [dispatch]);
-  const [createDialogOpen, setCreateDialogOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+  const [currentId, setCurrentId] = useState(undefined);
   return (
     <div>
       <Container maxWidth="lg">
         <Header />
-        <Recipes />
+        <Recipes setCurrentId={setCurrentId} />
         <br></br>
         <Button
           variant="outlined"
@@ -38,16 +38,17 @@ const App = () => {
           size="large"
           className={classes.button}
           onClick={() => {
-            setCreateDialogOpen(true);
+            setFormOpen(true);
           }}
         >
           <AddIcon />
         </Button>
-        <CreateDialog
-          createDialogOpen={createDialogOpen}
-          setCreateDialogOpen={setCreateDialogOpen}
-        />
       </Container>
+      <Form
+        formOpen={formOpen}
+        setFormOpen={setFormOpen}
+        currentId={currentId}
+      />
     </div>
   );
 };
