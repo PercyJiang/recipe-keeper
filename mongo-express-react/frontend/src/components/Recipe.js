@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Recipe = ({ recipe, setCurrentId, setFormOpen }) => {
+const Recipe = ({ recipe, setCurrentRecipe, setFormOpen }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   let materialString = "";
@@ -68,7 +68,7 @@ const Recipe = ({ recipe, setCurrentId, setFormOpen }) => {
       <CardActions disableSpacing className={classes.actions}>
         <IconButton
           onClick={() => {
-            setCurrentId(recipe._id);
+            setCurrentRecipe(recipe);
             setFormOpen(true);
           }}
         >

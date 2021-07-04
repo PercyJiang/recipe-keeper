@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import {
   Dialog,
   Paper,
@@ -33,31 +32,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form = ({ formOpen, setFormOpen, currentId }) => {
+const Form = ({ formOpen, setFormOpen, currentRecipe }) => {
   const classes = useStyles();
-  const recipe = useSelector((state) =>
-    currentId === undefined
-      ? undefined
-      : state.recipes.find((recipe) => recipe._id === currentId)
-  );
   // for update
   const materialContainer = [];
   const stepContainer = [];
-  if (recipe !== undefined) {
-    for (const k in recipe.Materials) {
+  if (currentRecipe !== undefined) {
+    for (const k in currentRecipe.Materials) {
       materialContainer.push(
         <TextField
           label={"material " + (parseInt(k) + 1)}
-          value={recipe.Materials[k]}
+          value={currentRecipe.Materials[k]}
           key={k}
         ></TextField>
       );
     }
-    for (const k in recipe.Steps) {
+    for (const k in currentRecipe.Steps) {
       stepContainer.push(
         <TextField
           label={"step " + k}
-          value={recipe.Steps[k]}
+          value={currentRecipe.Steps[k]}
           key={k}
         ></TextField>
       );
@@ -74,16 +68,20 @@ const Form = ({ formOpen, setFormOpen, currentId }) => {
         <form className={classes.form}>
           <div>
             <Typography variant="h4" className={classes.typography}>
-              {recipe === undefined
+              {currentRecipe === undefined
                 ? "Create a new recipe"
-                : "Update recipe " + recipe.RecipeName}
+                : "Update recipe " + currentRecipe.RecipeName}
             </Typography>
             <TextField
               required
               id="recipe_name"
               label="Recipe Name"
               variant="outlined"
-              value={currentId === undefined ? undefined : recipe.RecipeName}
+              value={
+                currentRecipe === undefined
+                  ? undefined
+                  : currentRecipe.RecipeName
+              }
             />
             <div className={classes.fileInput}>
               Image &nbsp;
@@ -98,7 +96,9 @@ const Form = ({ formOpen, setFormOpen, currentId }) => {
               id="creator"
               label="Creator"
               variant="outlined"
-              value={currentId === undefined ? undefined : recipe.Creator}
+              value={
+                currentRecipe === undefined ? undefined : currentRecipe.Creator
+              }
             />
             <TextField
               id="date"
@@ -108,7 +108,7 @@ const Form = ({ formOpen, setFormOpen, currentId }) => {
               InputLabelProps={{
                 shrink: true,
               }}
-              value={currentId === undefined ? undefined : "2021-06-17"}
+              value={currentRecipe === undefined ? undefined : "2021-06-17"}
             />
             <Typography variant="h6" className={classes.typography}>
               Materials
@@ -131,10 +131,6 @@ const Form = ({ formOpen, setFormOpen, currentId }) => {
               className={classes.button}
               onClick={() => {
                 console.log("percy: here");
-                stepContainer.push(
-                  <TextField label={"step 1"} key={1}></TextField>
-                );
-                console.log("percy: stepContainer: ", stepContainer);
               }}
             >
               Add Step

@@ -27,13 +27,16 @@ const App = () => {
   }, [dispatch]);
   // state
   const [formOpen, setFormOpen] = useState(false);
-  const [currentId, setCurrentId] = useState(undefined);
+  // const [currentId, setCurrentId] = useState(undefined);
   const [currentRecipe, setCurrentRecipe] = useState(undefined);
   return (
     <div>
       <Container maxWidth="lg">
         <Header />
-        <Recipes setCurrentId={setCurrentId} setFormOpen={setFormOpen} />
+        <Recipes
+          setCurrentRecipe={setCurrentRecipe}
+          setFormOpen={setFormOpen}
+        />
         <br></br>
         <Button
           variant="outlined"
@@ -41,7 +44,7 @@ const App = () => {
           size="large"
           className={classes.button}
           onClick={() => {
-            setCurrentId(undefined);
+            setCurrentRecipe(undefined);
             setFormOpen(true);
           }}
         >
@@ -51,7 +54,7 @@ const App = () => {
       <Form
         formOpen={formOpen}
         setFormOpen={setFormOpen}
-        currentId={currentId}
+        currentRecipe={currentRecipe}
       />
     </div>
   );
