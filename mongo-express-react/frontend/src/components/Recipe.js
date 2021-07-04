@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Recipe = ({ recipe }) => {
+const Recipe = ({ recipe, setCurrentId, setFormOpen }) => {
   const classes = useStyles();
   let materialString = "";
   for (const key in recipe.Materials) {
@@ -63,10 +63,15 @@ const Recipe = ({ recipe }) => {
         {stepContainer}
       </CardContent>
       <CardActions disableSpacing className={classes.actions}>
-        <IconButton aria-label="add to favorites">
+        <IconButton
+          onClick={() => {
+            setCurrentId(recipe._id);
+            setFormOpen(true);
+          }}
+        >
           <EditIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        <IconButton>
           <DeleteIcon />
         </IconButton>
       </CardActions>

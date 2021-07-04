@@ -30,7 +30,7 @@ const App = () => {
     <div>
       <Container maxWidth="lg">
         <Header />
-        <Recipes setCurrentId={setCurrentId} />
+        <Recipes setCurrentId={setCurrentId} setFormOpen={setFormOpen} />
         <br></br>
         <Button
           variant="outlined"
@@ -38,6 +38,7 @@ const App = () => {
           size="large"
           className={classes.button}
           onClick={() => {
+            setCurrentId(undefined);
             setFormOpen(true);
           }}
         >

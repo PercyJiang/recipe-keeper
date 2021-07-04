@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form = ({ formOpen, setFormOpen }) => {
+const Form = ({ formOpen, setFormOpen, currentId }) => {
   const classes = useStyles();
   return (
     <Dialog

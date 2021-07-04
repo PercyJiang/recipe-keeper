@@ -4,14 +4,18 @@ import { Grid } from "@material-ui/core";
 
 import Recipe from "./Recipe";
 
-const Recipes = () => {
+const Recipes = ({ setCurrentId, setFormOpen }) => {
   const recipes = useSelector((state) => state.recipes);
   const recipeContainer = [];
   for (const key in recipes) {
     const recipe = recipes[key];
     recipeContainer.push(
       <Grid key={recipe._id} item>
-        <Recipe recipe={recipe} />
+        <Recipe
+          recipe={recipe}
+          setCurrentId={setCurrentId}
+          setFormOpen={setFormOpen}
+        />
       </Grid>
     );
   }
