@@ -8,10 +8,7 @@ import useStyles from "../styles/Form";
 const Form = () => {
   const classes = useStyles();
   return (
-    <Paper elevation={3} className={classes.root}>
-      <Typography variant="h4" className={classes.typography}>
-        Create Recipe
-      </Typography>
+    <Paper elevation={3}>
       <form className={classes.form}>
         <div>
           <TextField

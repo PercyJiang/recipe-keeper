@@ -2,10 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   root: {
-    margin: "auto",
-    marginTop: 20,
-    width: 500,
-    paddingBottom: 60,
+    // margin: "auto",
+    // marginTop: 20,
+    // width: 500,
+    // paddingBottom: 60,
   },
   form: {
     "& .MuiTextField-root": {
