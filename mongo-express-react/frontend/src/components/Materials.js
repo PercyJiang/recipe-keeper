@@ -1,5 +1,5 @@
-import React from "react";
-import { Grid, Button, Typography } from "@material-ui/core";
+import React, { useState } from "react";
+import { Grid, Button, Typography, TextField } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() => ({
@@ -14,23 +14,29 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Materials = () => {
+const Materials = ({ materials }) => {
   const classes = useStyles();
-  const materialContainer = [];
-  // if (currentRecipe !== undefined) {
-  //   for (const k in currentRecipe.Materials) {
-  //     materialContainer.push(
-  //       <TextField
-  //         key={k}
-  //         label={"Material " + (parseInt(k) + 1)}
-  //         value={currentRecipe.Materials[k]}
-  //       ></TextField>
-  //     );
-  //   }
-  // }
-  // const addMaterialField = () => {
-  //   setFields({ ...fields, Materials: [...fields.Materials, ""] });
-  // };
+  const [materialContainer, setMaterialContainer] = useState(
+    materials.map((material, i) => (
+      <TextField
+        key={i}
+        label={"Material " + (parseInt(i) + 1)}
+        value={material}
+      ></TextField>
+    ))
+  );
+  const addMaterialField = () => {
+    const i = materialContainer.length;
+    setMaterialContainer([
+      ...materialContainer,
+      <TextField key={i} label={"Material " + (parseInt(i) + 1)}></TextField>,
+    ]);
+  };
+  const removeMaterialField = () => {
+    setMaterialContainer(
+      materialContainer.slice(0, materialContainer.length - 1)
+    );
+  };
   return (
     <Grid>
       <Typography variant="h6" className={classes.typography}>
@@ -43,7 +49,9 @@ const Materials = () => {
         variant="outlined"
         size="small"
         className={classes.button}
-        onClick={() => {}}
+        onClick={() => {
+          removeMaterialField();
+        }}
       >
         Remove Material
       </Button>
@@ -51,7 +59,9 @@ const Materials = () => {
         variant="outlined"
         size="small"
         className={classes.button}
-        onClick={() => {}}
+        onClick={() => {
+          addMaterialField();
+        }}
       >
         Add Material
       </Button>
