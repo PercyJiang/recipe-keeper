@@ -9,6 +9,8 @@ import {
 import CheckIcon from "@material-ui/icons/Check";
 import FileBase from "react-file-base64";
 
+import Materials from "./Materials";
+
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -58,21 +60,6 @@ const Form = ({ formOpen, setFormOpen, currentRecipe }) => {
       });
     }
   }, [currentRecipe]);
-  const materialContainer = [];
-  if (currentRecipe !== undefined) {
-    for (const k in currentRecipe.Materials) {
-      materialContainer.push(
-        <TextField
-          key={k}
-          label={"Material " + (parseInt(k) + 1)}
-          value={currentRecipe.Materials[k]}
-        ></TextField>
-      );
-    }
-  }
-  const addMaterialField = () => {
-    setFields({ ...fields, Materials: [...fields.Materials, ""] });
-  };
   return (
     <Dialog
       open={formOpen}
@@ -118,33 +105,7 @@ const Form = ({ formOpen, setFormOpen, currentRecipe }) => {
               }}
               value={fields.CreatedAt}
             />
-            <Typography variant="h6" className={classes.typography}>
-              Materials
-            </Typography>
-            {materialContainer}
-            <br></br>
-            <br></br>
-            <Button
-              variant="outlined"
-              size="small"
-              className={classes.button}
-              onClick={() => {}}
-            >
-              Remove Material
-            </Button>
-            <Button
-              variant="outlined"
-              size="small"
-              className={classes.button}
-              onClick={() => {
-                console.log("percy: here");
-                console.log("percy: fields.Materials", fields.Materials);
-                addMaterialField();
-                console.log("percy: fields.Materials", fields.Materials);
-              }}
-            >
-              Add Material
-            </Button>
+            <Materials />
             <Typography variant="h6" className={classes.typography}>
               Steps
             </Typography>
