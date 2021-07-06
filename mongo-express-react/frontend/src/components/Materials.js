@@ -14,14 +14,24 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Materials = ({ materials }) => {
+const Materials = ({ fields, setFields }) => {
   const classes = useStyles();
   const [materialContainer, setMaterialContainer] = useState(
-    materials.map((material, i) => (
+    fields.Materials.map((material, i) => (
       <TextField
         key={i}
         label={"Material " + (parseInt(i) + 1)}
         value={material}
+        onChange={(e) => {
+          console.log("percy: change field");
+          setFields({
+            ...fields,
+            Materials: [
+              ...fields.Materials,
+              (fields.Materials[i] = e.target.value),
+            ],
+          });
+        }}
       ></TextField>
     ))
   );

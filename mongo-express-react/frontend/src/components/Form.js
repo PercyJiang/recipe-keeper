@@ -105,7 +105,10 @@ const Form = ({ formOpen, setFormOpen, currentRecipe }) => {
               }}
               value={fields.CreatedAt}
             />
-            <Materials materials={fields.Materials} />
+            <Materials
+              fields={fields}
+              setFields={setFields}
+            />
             <Typography variant="h6" className={classes.typography}>
               Steps
             </Typography>
