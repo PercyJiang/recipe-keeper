@@ -10,6 +10,7 @@ import CheckIcon from "@material-ui/icons/Check";
 import FileBase from "react-file-base64";
 
 import Materials from "./Materials";
+import Steps from "./Steps";
 
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
@@ -105,32 +106,8 @@ const Form = ({ formOpen, setFormOpen, currentRecipe }) => {
               }}
               value={fields.CreatedAt}
             />
-            <Materials
-              fields={fields}
-              setFields={setFields}
-            />
-            <Typography variant="h6" className={classes.typography}>
-              Steps
-            </Typography>
-            {/* {fields.Steps} */}
-            <br></br>
-            <br></br>
-            <Button
-              variant="outlined"
-              size="small"
-              className={classes.button}
-              onClick={() => {}}
-            >
-              Remove Step
-            </Button>
-            <Button
-              variant="outlined"
-              size="small"
-              className={classes.button}
-              onClick={() => {}}
-            >
-              Add Step
-            </Button>
+            <Materials fields={fields} setFields={setFields} />
+            <Steps fields={fields} setFields={setFields} />
             <br></br>
             <br></br>
           </div>
