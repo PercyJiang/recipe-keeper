@@ -16,31 +16,37 @@ const useStyles = makeStyles(() => ({
 
 const Materials = ({ fields, setFields }) => {
   const classes = useStyles();
-  const [materialContainer, setMaterialContainer] = useState(
-    fields.Materials.map((material, i) => (
+  const loadMaterials = (materials) => {
+    return materials.map((material, i) => (
       <TextField
         key={i}
         label={"Material " + (parseInt(i) + 1)}
-        value={material}
+        value={materials[i]}
         onChange={(e) => {
-          console.log("percy: change field");
+          materials[i] = e.target.value;
           setFields({
             ...fields,
-            Materials: [
-              ...fields.Materials,
-              (fields.Materials[i] = e.target.value),
-            ],
+            Materials: materials,
           });
+          setMaterialContainer(loadMaterials(materials));
+          console.log("percy: fields: ", fields);
+          console.log("percy: materialContainer: ", materialContainer);
         }}
       ></TextField>
-    ))
+    ));
+  };
+  const [materialContainer, setMaterialContainer] = useState(
+    loadMaterials(fields.Materials)
   );
   const addMaterialField = () => {
     const i = materialContainer.length;
-    setMaterialContainer([
-      ...materialContainer,
-      <TextField key={i} label={"Material " + (parseInt(i) + 1)}></TextField>,
-    ]);
+    setFields({
+      ...fields,
+      Materials: [...fields.Materials, (fields.Materials[i] = "")],
+    });
+    setMaterialContainer(loadMaterials());
+    console.log("percy: fields: ", fields);
+    console.log("percy: materialContainer: ", materialContainer);
   };
   const removeMaterialField = () => {
     setMaterialContainer(
