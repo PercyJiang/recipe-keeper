@@ -54,6 +54,7 @@ const App = () => {
         formOpen={formOpen}
         setFormOpen={setFormOpen}
         currentRecipe={currentRecipe}
+        setCurrentRecipe={setCurrentRecipe}
       />
     </div>
   );

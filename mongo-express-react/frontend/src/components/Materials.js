@@ -16,42 +16,52 @@ const useStyles = makeStyles(() => ({
 
 const Materials = ({ fields, setFields }) => {
   const classes = useStyles();
-  const loadMaterials = (materials) => {
-    return materials.map((material, i) => (
+  const makeMaterial = (value, i) => {
+    return (
       <TextField
         key={i}
         label={"Material " + (parseInt(i) + 1)}
-        value={materials[i]}
+        value={value}
         onChange={(e) => {
-          materials[i] = e.target.value;
-          setFields({
-            ...fields,
-            Materials: materials,
-          });
-          setMaterialContainer(loadMaterials(materials));
-          console.log("percy: fields: ", fields);
-          console.log("percy: materialContainer: ", materialContainer);
+          changeMaterial(e.target.value, i);
+          changeFields(e.target.value, i);
         }}
       ></TextField>
-    ));
+    );
   };
   const [materialContainer, setMaterialContainer] = useState(
-    loadMaterials(fields.Materials)
+    fields.Materials.map((value, i) => makeMaterial(value, i))
   );
-  const addMaterialField = () => {
-    const i = materialContainer.length;
+  const changeMaterial = (value, i) => {
+    setMaterialContainer([
+      ...materialContainer.slice(0, i),
+      makeMaterial(value, i),
+      ...materialContainer.slice(i + 1),
+    ]);
+  };
+  const changeFields = (value, i) => {
     setFields({
       ...fields,
-      Materials: [...fields.Materials, (fields.Materials[i] = "")],
+      Materials: [
+        ...fields.Materials.slice(0, i),
+        value,
+        ...fields.Materials.slice(i + 1),
+      ],
     });
-    setMaterialContainer(loadMaterials());
-    console.log("percy: fields: ", fields);
-    console.log("percy: materialContainer: ", materialContainer);
+  };
+  const addMaterialField = () => {
+    const i = materialContainer.length;
+    changeMaterial("", i);
+    changeFields("", i);
   };
   const removeMaterialField = () => {
     setMaterialContainer(
       materialContainer.slice(0, materialContainer.length - 1)
     );
+    setFields({
+      ...fields,
+      Materials: fields.Materials.slice(0, fields.Materials.length - 1),
+    });
   };
   return (
     <Grid>

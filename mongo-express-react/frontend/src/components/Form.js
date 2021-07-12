@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form = ({ formOpen, setFormOpen, currentRecipe }) => {
+const Form = ({ formOpen, setFormOpen, currentRecipe, setCurrentRecipe }) => {
   const classes = useStyles();
   const [fields, setFields] = useState({});
   useEffect(() => {
@@ -65,7 +65,17 @@ const Form = ({ formOpen, setFormOpen, currentRecipe }) => {
     <Dialog
       open={formOpen}
       onClose={() => {
+        setFields({
+          Title: "Create a new recipe",
+          RecipeName: undefined,
+          Image: undefined,
+          Creator: undefined,
+          CreatedAt: undefined,
+          Materials: [],
+          Steps: {},
+        });
         setFormOpen(false);
+        setCurrentRecipe(undefined);
       }}
     >
       <Paper elevation={3}>
